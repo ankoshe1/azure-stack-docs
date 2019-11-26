@@ -58,6 +58,8 @@ Set-Location "$RootFolder\RunVaaSAutomation"
 
 ## Launch Solution Validation workflow
 
+To learn how to run Solution Validation workflow via VaaS Port, visit [Validate OEM packages](azure-stack-vaas-validate-oem-package.md).
+
 Run the following script with the appropriate parameter values:
 
 ```powershell
@@ -110,6 +112,8 @@ $scriptParameters = @{
 ```
 
 ## Launch Package Validation workflow
+
+To learn how to run Package Validation workflow via VaaS Port, visit [Validate OEM packages](azure-stack-vaas-validate-oem-package.md).
 
 Run the following script with the appropriate parameter values:
 
@@ -169,7 +173,10 @@ $scriptParameters = @{
 }
 & .\RunVaaSAutomation.ps1 @scriptParameters
 ```
+
 ## Launch Test Pass workflow
+
+To learn how to run Test Pass workflow via VaaS Port, visit [Scheduling a test](azure-stack-vaas-schedule-test-pass.md).
 
 Run the following script with the appropriate parameter values:
 
@@ -268,7 +275,9 @@ For more information, see [Workflow common parameters](azure-stack-vaas-paramete
 
 ## Review the results
 
-Test logs and reports are saved under the current working folder. For other options, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
+Test logs and reports are saved under the current working folder. 
+
+For other options, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
 
 ## Next steps
 
