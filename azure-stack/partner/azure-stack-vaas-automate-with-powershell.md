@@ -32,10 +32,11 @@ This script can be used to:
 > * Launch VaaS tests in Test Pass, Solution Validation and Package Validation workflows.
 > * Report test results
 
-Links below contains the info about how to run tests via VaaS Portal. Before using the script, you need to learn the requried parameters and their values.
-  * SolutionValidation Workflow: [Validate a new Azure Stack solution](https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-validate-solution-new)
-  * PackageValidation Workflow: [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
-  * TestPass Workflow: [Scheduling a test](https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-schedule-test-pass)
+Links below contains the info about how to run tests via VaaS Portal. Before using the script, you need to learn the required parameters and their values.
+
+* SolutionValidation Workflow: [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)
+* PackageValidation Workflow: [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
+* TestPass Workflow: [Scheduling a test](azure-stack-vaas-schedule-test-pass.md)
 
 ## Download the automation scripts
 
@@ -75,9 +76,9 @@ $ProjectName    = ''
 $DiagnosticsStorageConnection=''
 $VaaSProject_SolutionValidation_Configuration='Min' # enter 'Min' or 'Max'
 
-# You don't need to moidfy the lines below
+# No need to modify the lines below
 Import-Module .\VaaSAutomation.psm1 -verbose -force
-$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outoutFolder "."
+$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outputFolder "."
 $AgentName = "$((Get-WmiObject win32_computersystem).DNSHostName).$((Get-WmiObject win32_computersystem).Domain)".ToLower()
 $VaaSAccountCredentail = New-Object System.Management.Automation.PSCredential ($VaaSAccountUserName, (ConvertTo-SecureString $VaaSAccountPassword -AsPlainText -Force))
 
@@ -131,9 +132,9 @@ $VaaSProject_PackageValidation_RequireDigitalSignature = "false" # enter 'true' 
 $VaaSProject_PackageValidation_LocalPathtoAzureStackUpdatePkgs = ""
 $VaaSProject_PackageValidation_LocalPathtoOEMUpdatePkgs = ""
 
-# You don't need to moidfy the lines below
+# No need to modify the lines below
 Import-Module .\VaaSAutomation.psm1 -verbose -force
-$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outoutFolder "."
+$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outputFolder "."
 $AgentName = "$((Get-WmiObject win32_computersystem).DNSHostName).$((Get-WmiObject win32_computersystem).Domain)".ToLower()
 $VaaSAccountCredentail = New-Object System.Management.Automation.PSCredential ($VaaSAccountUserName, (ConvertTo-SecureString $VaaSAccountPassword -AsPlainText -Force))
 
@@ -190,7 +191,7 @@ $DiagnosticsStorageConnection=''
 # You don't need to moidfy the lines below.
 # Below is an example to run "Cloud Simulation Engine" test.
 Import-Module .\VaaSAutomation.psm1 -verbose -force
-$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outoutFolder "."
+$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outputFolder "."
 $AgentName = "$((Get-WmiObject win32_computersystem).DNSHostName).$((Get-WmiObject win32_computersystem).Domain)".ToLower()
 $VaaSAccountCredentail = New-Object System.Management.Automation.PSCredential ($VaaSAccountUserName, (ConvertTo-SecureString $VaaSAccountPassword -AsPlainText -Force))
 
@@ -249,21 +250,21 @@ $scriptParameters = @{
 ## Parameter Table
 
 For more information, see [Workflow common parameters](azure-stack-vaas-parameters.md).
-    
-    | Parameter | Description |
-    | --- | --- |
-    | VaaSAccountUserName | Your VaaS user name for VaaS Portal. |
-    | VaaSAccountPassword | Your VaaS password for VaaS Portal. |
-    | VaaSAccountTenantId | Your VaaS tenant GUID. |
-    | ServiceAdminUserName | Your Azure Stack service admin account.  |
-    | ServiceAdminPassword | Your Azure Stack service password.  |
-    | TenantAdminUserName | The administrator for the primary tenant.  |
-    | TenantAdminPassword | The password for the primary tenant.  |
-    | CloudAdminUserName | The cloud administrator username.  |
-    | CloudAdminPassword | The password for the cloud administrator.  |
-    | SolutionName | The name of the VaaS solution. |
-    | ProjectName | The name of the VaaS workflow. |
-    | DiagnosticsStorageConnection | A SAS URL to an Azure Storage Account to which diagnostics logs will be copied during test execution. For instructions on generating the SAS URL, see [Generate the diagnostics connection string](azure-stack-vaas-parameters.md). |
+
+| Parameter | Description |
+| --- | --- |
+| VaaSAccountUserName | Your VaaS user name for VaaS Portal. |
+| VaaSAccountPassword | Your VaaS password for VaaS Portal. |
+| VaaSAccountTenantId | Your VaaS tenant GUID. |
+| ServiceAdminUserName | Your Azure Stack service admin account.  |
+| ServiceAdminPassword | Your Azure Stack service password.  |
+| TenantAdminUserName | The administrator for the primary tenant.  |
+| TenantAdminPassword | The password for the primary tenant.  |
+| CloudAdminUserName | The cloud administrator username.  |
+| CloudAdminPassword | The password for the cloud administrator.  |
+| SolutionName | The name of the VaaS solution. |
+| ProjectName | The name of the VaaS workflow. |
+| DiagnosticsStorageConnection | A SAS URL to an Azure Storage Account to which diagnostics logs will be copied during test execution. For instructions on generating the SAS URL, see [Generate the diagnostics connection string](azure-stack-vaas-parameters.md). |
 
 ## Review the results
 
